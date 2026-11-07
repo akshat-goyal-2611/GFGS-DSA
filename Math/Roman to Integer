@@ -1,0 +1,48 @@
+class Solution {
+    public int romanToInt(String s) {
+        
+        HashMap<String, Integer> mp = new HashMap<>();
+
+        int n = s.length();
+
+        mp.put("I", 1);
+        mp.put("V", 5);
+        mp.put("X", 10);
+        mp.put("L", 50);
+        mp.put("C", 100);
+        mp.put("D", 500);
+        mp.put("M", 1000);
+        mp.put("IV", 4);
+        mp.put("IX", 9);
+        mp.put("XL", 40);
+        mp.put("XC", 90);
+        mp.put("CD", 400);
+        mp.put("CM", 900);
+
+        int sum = 0;
+
+        int i = 0;
+        while(i < n){
+
+            if(i+1 < n){
+                String sb = ""+s.charAt(i)+s.charAt(i+1);
+
+                if(mp.containsKey(sb)){
+                    sum += (mp.get(sb));
+                    i += 2;
+                }else{
+                    sum += (mp.get(""+s.charAt(i)));
+                    i++;
+                }
+
+            }else{
+
+                
+                    sum += (mp.get(""+s.charAt(i)));
+                i++;
+            }
+        }
+
+        return sum;
+    }
+}
