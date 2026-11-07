@@ -1,0 +1,18 @@
+class Solution {
+    public boolean isPowerOfFour(int n) {
+        
+
+        if(Integer.bitCount(n) != 1) return false;
+
+        // number of zeros
+        int zeroCnt = 0;
+
+        while(n > 0){
+
+            zeroCnt++;
+            n = n>>1;
+        }
+
+        return (zeroCnt-1) %2 == 0 ? true : false;
+    }
+}
