@@ -1,0 +1,23 @@
+class Solution {
+    public boolean isHappy(int n) {
+        
+        while(true){
+
+            // happy number
+            if(n == 1 || n == 7) return true;
+
+            if(n == 2 || n == 3 || n == 4 || n == 5 || n == 8
+            || n == 9 || n == 6) return false;
+
+            int no = 0;
+            while(n > 0){
+
+                int rem = n%10;
+                no += (rem*rem);
+                n /= 10;
+            }
+
+            n = no;
+        }
+    }
+}
